@@ -32,10 +32,12 @@
             Hello fellow shoppers! We're currently building our new<br>fashion store.
             Add your email below to stay up-to-date with<br>announcements and our launch deals.
         </p>
-        <form action="">
-            <input type="email" required placeholder="Email Address">
+        <div class="form">
+            <input type="email" required placeholder="Email Address" form="novalidatedform">
+            <p class="error-message">Please provide a valid email</p>
             <button type="submit"><img src="images/icon-arrow.svg" alt="Arrow right icon"></button>
-        </form>
+            <form id="novalidatedform" novalidate/>
+        </div>
     </section>
     <img src="images/hero-desktop.jpg" alt="Woman in salmon shirt looking at the camera" class="hero-desktop">
 </main>

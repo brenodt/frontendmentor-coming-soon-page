@@ -4,7 +4,7 @@
   --desaturated-red: hsl(0, 36%, 70%);
   --soft-red: hsl(0, 93%, 68%);
   --dark-grey-red: hsl(0, 6%, 24%);
-  --white-gradient: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --white-gradient: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 100%, 98%));
   --pink-gradient: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
 }
 
@@ -70,7 +70,7 @@ p {
   margin: 20px 0 40px 0;
 }
 
-form {
+.form {
   position: relative;
   display: flex;
   align-items: center;
@@ -78,6 +78,14 @@ form {
 
 input:focus, button:focus {
   outline: none;
+}
+
+.error-message {
+  display: none;
+  position: absolute;
+  top: 1vh;
+  padding-left: 25px;
+  color: var(--soft-red);
 }
 
 input {
@@ -88,8 +96,10 @@ input {
   padding-left: 25px;
   font-size: 14px;
   font-family: 'Josefin Sans', sans-serif;
-  transition: border 0.3s ease;
+  transition: border 0.3s ease, background-size 1s ease;
   position: absolute;
+  background: url("images/icon-error.svg") no-repeat 75% 50%;
+  background-size: 0;
 }
 
 ::placeholder {
@@ -97,13 +107,16 @@ input {
   opacity: 0.5;
 }
 
-input:not(:focus):invalid {
+input:not(:placeholder-shown):not(:focus):invalid {
   border: 2px solid var(--soft-red);
-  background: url("images/icon-error.svg") no-repeat 75% 50%;
+  background-size: 20px;
+}
+
+input:not(:placeholder-shown):not(:focus):invalid + p {
+  display: inline-block;
 }
 
 button {
-  /*display: none;*/
   z-index: 100;
   position: absolute;
   right: 0;
@@ -118,5 +131,6 @@ button {
 
 button:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-image: var(--white-gradient);
   height: 5.2vh;
 }
