@@ -17,14 +17,14 @@
 body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 16px;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
 main {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 100%;
   width: 100%;
 }
@@ -34,20 +34,22 @@ main {
 }
 
 .hero-desktop {
-  height: 100%;
-  width: auto;
+  display: inline;
+  width: 40%;
   object-fit: cover;
+  object-position: center;
 }
 
 section {
   background-image: url('images/bg-pattern-desktop.svg');
   background-size: cover;
+  width: 60%;
   background-repeat: no-repeat;
   padding: 8vh 10vw;
 }
 
 section .logo {
-  margin-bottom: 20vh;
+  margin: 0 0 20vh 0;
 }
 
 h1 {
@@ -73,6 +75,7 @@ p {
 .form {
   position: relative;
   display: flex;
+  width: 70%;
   align-items: center;
 }
 
@@ -89,7 +92,7 @@ input:focus, button:focus {
 }
 
 input {
-  height: 5vh;
+  height: 50px;
   width: 100%;
   border-radius: 72px;
   border: 1px solid var(--desaturated-red);
@@ -121,16 +124,76 @@ button {
   position: absolute;
   right: 0;
   margin-left: -20%;
-  height: 5vh;
-  width: 20%;
+  height: 50px;
+  width: 80px;
   border-radius: 72px;
   border: none;
   background-image: var(--pink-gradient);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 button:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   background-image: var(--white-gradient);
-  height: 5.2vh;
+  height: 52px;
+}
+
+button:active {
+  box-shadow: none;
+  background-image: var(--white-gradient);
+  height: 52px;
+}
+
+@media (max-width: 800px) {
+  section {
+    padding: 3vh;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    overflow-y: scroll;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: none;
+    height: max-content;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    margin-bottom: 80px;
+  }
+
+  .logo {
+    margin: 30px 0 30px 30px !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .hero-mobile {
+    display: inline;
+    width: 100%;
+    margin: 100px 0 80px 0;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .hero-desktop {
+    display: none;
+  }
+
+  h1 {
+    line-height: 5rem;
+  }
+
+  p {
+    margin: 0 15px 40px 15px;
+  }
 }
