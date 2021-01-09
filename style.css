@@ -196,4 +196,8 @@ button:active {
   p {
     margin: 0 15px 40px 15px;
   }
+
+  .error-message {
+    top: 4vh;
+  }
 }
